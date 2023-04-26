@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom" 
 import { Link } from 'react-router-dom';
+import styles from './register.module.css'
 
 const apiUrl = process.env.REACT_APP_PUBLIC_API_URL;
 // let navigate=useNavigate()
@@ -16,6 +17,14 @@ const Register = () => {
     password: "",
   });
 
+  useEffect(() => {
+   
+    document.body.classList.add(styles.body);
+    return () => {
+      document.body.classList.remove(styles.body);
+    };
+
+  },[]);
 
 
   // a funciton to check the alternate and primary phone number and email are different
@@ -70,9 +79,14 @@ const Register = () => {
 
     }
   };
+  document.body.classList.add(styles.body);
+
   return (
-    <div>
+    <div className={styles.container}>
       <form onSubmit={handleSubmit}>
+      <p>Hey There</p>
+            <h1>Welcome Back</h1>
+            <br></br>
         <input
           name="fname"
           required
@@ -80,7 +94,7 @@ const Register = () => {
           placeholder="Enter your First Name"
           value={formData.fname}
           onChange={handleChange} />
-
+        <br></br>
         <input
           required
           name="lname"
@@ -89,6 +103,7 @@ const Register = () => {
           type="text"
           placeholder="Enter your Last Name"
         />
+        <br></br>
         <input
           required
           name="email_id"
@@ -97,7 +112,7 @@ const Register = () => {
           type="email"
           placeholder="Enter your email id"
         />
-
+        <br></br>
         <input
           required
 
@@ -107,17 +122,17 @@ const Register = () => {
           type="password"
           placeholder="Enter your Password" 
         />
-
-        <input type="submit" value={"Register"}
+        <br></br>
+        <input type="submit" value={"REGISTER"}
         />
-        
-      </form >
-  <div>
+         <div className={styles.link}>
     Already have an account? {/* Link to login page */}
     <Link to={"/login"}>
       <div>Login</div>
     </Link>
   </div>
+      </form >
+ 
     </div >
   );
 };

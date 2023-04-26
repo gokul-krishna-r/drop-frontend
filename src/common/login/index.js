@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import styles from "./login.module.css";
 
 const Login = () => {
   const [token, setToken] = useState("");
@@ -19,6 +20,11 @@ const Login = () => {
       localStorage.setItem("tokenid", token);
       }
     }
+    document.body.classList.add(styles.body);
+    return () => {
+      document.body.classList.remove(styles.body);
+    };
+
   }, [token]);
 
   const handleSubmit = async (event) => {
@@ -61,16 +67,19 @@ const Login = () => {
   };
 
   return (
-    <div >
+    <div className={styles.container}>
         <form onSubmit={handleSubmit}>
-          <p>{apiUrl}</p>
+            <p>Hey There</p>
+            <h1>Welcome Aboard</h1>
+            <br></br>
             <input type="email" placeholder="Enter your email" name="username" onChange={handleChange}/><br></br>
             <input type="password"  onChange={handleChange} name="password" placeholder="Enter your password"/><br></br>
-            <input type="submit" value={"Login"}/>
-        </form>
-        <div>
+            <input type="submit" value={"LOGIN"}/>
+            <div className={styles.link}>
           New Here<Link to="/register">Register</Link>
         </div>
+        </form>
+        
     </div>
   );
 };
