@@ -20,12 +20,17 @@ const Dashboard = () => {
           const res = await fetch(apiUrl + "list_projects/", {
             headers: {
             accept: 'application/json',
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
             },
           });
-          const data = await res.json();
-          setProjArr(data);
-          console.log(data)
+          if(res.status=="200"){
+            const data = await res.json();
+            setProjArr(data)
+            console.log(data)
+
+          }else if(res.status=="405"){
+            setProjArr("No Projects");
+          }
         } catch (error) {
         }
       };
@@ -40,12 +45,13 @@ const Dashboard = () => {
 
   return (
     < >
-       {projArr.map((item)=>(
+       {typeof projArr=="string" ? (<p>No Projects Till Now</p>)
+       :(projArr.map((item)=>(
         <div key={item.id}>
             <h2>{item.pname}</h2>
             <p>{item.domain}</p>
            </div>
-       ))}
+       )))}
     </>
   );
 };
