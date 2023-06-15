@@ -7,13 +7,20 @@ import logo from "../../images/logo.svg"
 const Header = () => {
    
 
+    const onLogOut=(() => {
+        const token = localStorage.removeItem("tokenid");
+        return token
+      });
+
   return (
     < >
       <div className={styles.header}>
       <img src={logo} alt="drop logo"/>
-      <Link>Pricing</Link>
-      <Link>Documentation</Link>
-      <Link>Logout</Link>
+      <div>
+        <Link >Pricing</Link>
+        <Link>Documentation</Link>
+        <Link to={"/login"} onClick={onLogOut}>Logout</Link>
+      </div>
       </div>
     </>
   );

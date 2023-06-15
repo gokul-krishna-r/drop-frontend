@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./dashboard.module.css";
 import Header  from "../header/index.js";
 
@@ -47,13 +46,35 @@ const Dashboard = () => {
 
   // const router = useRouter();
 
-
+  async function deleteProj(proj_name,domain) {
+    const res = await fetch(apiUrl+ "delete_project/", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        accept: "application/json",
+        mode:"cors"
+      },
+      body:JSON.stringify({
+        project_domain:domain,
+        project_name:proj_name
+       }),
+    });
+    if(res.status=="200"){
+      const data = await res.json();
+      setProjArr(data)
+      console.log(data)
+  
+    }else if(res.status=="405"){
+    }
+  }
 
   return (
     < >
       <div className={styles.createProject}>
       <Header/>
-      <input type="submit" value="CREATE PROJECT"></input>
+      <br></br>
+      <input type="submit" value="CREATE PROJECT" onClick={()=>{window.location.href="/createproject"}}></input>
       </div>
       <div className={styles.projectItemWrapper}>
         <h1>Projects</h1>
@@ -61,8 +82,9 @@ const Dashboard = () => {
        :(projArr.map((item)=>(
         <div className={styles.projectItem} key={item.id}>
             <h2>{item.pname}</h2>
-            <br></br>
-            <p>{item.domain}</p>
+            
+            <a href={'http://'+item.domain} target="_blank">{item.domain}</a>
+            <button   onClick={()=>{deleteProj(item.pname,item.domain)}}>Delete</button>
            </div>
 
        )))}
@@ -70,4 +92,6 @@ const Dashboard = () => {
     </>
   );
 };
+
+
 export default Dashboard;

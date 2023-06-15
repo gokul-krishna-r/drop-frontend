@@ -21,9 +21,7 @@ const Login = () => {
       }
     }
     document.body.classList.add(styles.body);
-    return () => {
-      document.body.classList.remove(styles.body);
-    };
+    
 
   }, [token]);
 
@@ -40,6 +38,7 @@ const Login = () => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
           accept: "application/json",
+          mode:"cors"
         },
         body: params.toString(),
       });
