@@ -17,8 +17,7 @@ const Header = () => {
       <div className={styles.header}>
       <img src={logo} alt="drop logo"/>
       <div>
-        <Link >Pricing</Link>
-        <Link>Documentation</Link>
+        <Link to={"/documentation"}>Documentation</Link>
         <Link to={"/login"} onClick={onLogOut}>Logout</Link>
       </div>
       </div>

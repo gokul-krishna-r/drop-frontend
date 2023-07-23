@@ -26,8 +26,6 @@ const Login = () => {
   }, [token]);
 
   const handleSubmit = async (event) => {
-
-
     event.preventDefault();
     try {
       const params = new URLSearchParams();
@@ -46,14 +44,13 @@ const Login = () => {
       const responseData = await response.json();
       setToken(responseData.access_token)
       console.log(responseData);
-      if (responseData.access_token) {
-        window.location.href='/dashboard'
-      } else {
-
+      if(response.status!=200){
         alert("username or password is incorrect");
       }
+      else if (responseData.access_token) {
+        window.location.href='/dashboard'
+      } 
     } catch (error) {
-
       console.log(error);
     }
   };

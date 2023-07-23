@@ -7,20 +7,20 @@ body{
 }
 .createProject{
     
-    height: 25vh;
    background-image: url("../../images/banner-background.svg"),linear-gradient(123.69deg, #3768CE 13.99%, #88C9EC 82.82%);
    background-size: cover;
    background-repeat: no-repeat;
    display: flex;
    flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
+    padding-bottom: 40px;
 }
 .projectItemWrapper{
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: left;
+  align-items: space-between;
   padding:40px;
   gap: 32px;
 
@@ -36,6 +36,13 @@ box-shadow: 0px 2px 20px rgba(93, 149, 220, 0.2);
 border-radius: 10px;
 }
 
+.projectItem div{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap:12px;
+  justify-content: flex-end;
+}
 
 input[type="submit"]{
   display: flex;

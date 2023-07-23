@@ -1,0 +1,42 @@
+
+.TutorialContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    gap:20px;
+    background-color: white;
+    box-shadow: 0px 2px 20px rgba(93, 149, 220, 0.2);
+
+    border-radius: 10px;
+    padding: 48px;
+}
+
+
+.TutorialContainer div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap:16px;
+    padding-top: 20px;
+}
+.TutorialContainer ol{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.TutorialContainer a, .TutorialContainer p a{
+    padding: 12px;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    
+}
+
+.TutorialContainer ol li img{
+    border-radius: 10px;
+}

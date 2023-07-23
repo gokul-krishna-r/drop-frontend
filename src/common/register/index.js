@@ -71,6 +71,8 @@ const Register = () => {
       if(data.msg==="User successfully Created"){
         window.location.href = '/login';
 
+      }else if(data.status_code!=400){
+        alert(data.detail)
       }
 
 

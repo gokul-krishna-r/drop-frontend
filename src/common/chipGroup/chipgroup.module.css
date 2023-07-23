@@ -1,0 +1,26 @@
+
+.chipWrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap:12px;
+    flex-wrap: wrap;
+
+}
+.chip{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin: 8px;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.chip:hover{
+  cursor: pointer;
+}
