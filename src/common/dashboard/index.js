@@ -170,7 +170,11 @@ const Dashboard = () => {
               (<button   onClick={()=>{suspendProj(item.id)}}>Suspend</button>):
               (<button   onClick={()=>{resumeProj(item.id)}}>Resume</button>)
                 } 
-              <button   onClick={()=>{deleteProj(item.id,item.domain)}}>Delete</button>
+              <button   onClick={()=>{const del=window.confirm("Are you sure you want to delete?");
+              if(del){
+                deleteProj(item.id,item.domain)
+              }
+              }}>Delete</button>
             </div>
            </div>
 
