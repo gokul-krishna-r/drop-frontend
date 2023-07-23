@@ -40,7 +40,7 @@ const ProjectDetails = () => {
             Authorization: `Bearer ${token}`,
             },
           });
-          if(res.status=="200"){
+          if(res.status===200){
             const data = await res.json();
             
             setProjArr(data)
@@ -54,7 +54,8 @@ const ProjectDetails = () => {
       };
      
       fetchProjects();
-    }, [projArr]);
+     
+    },[projArr]);
   
 
   // const router = useRouter();

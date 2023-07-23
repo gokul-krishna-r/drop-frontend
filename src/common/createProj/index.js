@@ -25,6 +25,11 @@ const CreateProject = () => {
   };
 
   const isValidEnvContent = (content) => {
+    if (content.trim() === "") {
+      // Empty environment content is allowed
+      return true;
+    }
+    
     const envLineRegex = /^[a-zA-Z_][a-zA-Z0-9_]*=[^\r\n]*$/;
   
     // Split the content into lines
@@ -210,7 +215,6 @@ const CreateProject = () => {
 
         <br></br>
         <textarea
-          required  
           name="env"
           value={envContent}
           onChange={(e) => setEnvContent(e.target.value)}
